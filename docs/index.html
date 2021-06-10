@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="https://static.liqpay.ua/elements/customElements.js"></script>
+    </head>
+    <body>
+        <lp-provider lp-data="your_data" lp-signature="your_signature">
+            <lp-qr></lp-qr>
+        </lp-provider>
+        <lp-provider lp-data="your_data" lp-signature="your_signature">
+            <lp-apple-pay mode="black"></lp-apple-pay>
+        </lp-provider>
+        <lp-provider lp-data="your_data" lp-signature="your_signature">
+            <lp-privat24-pay mode="black"></lp-privat24-pay>
+        </lp-provider>
+        <script>
+            const provider = document.querySelector('lp-provider');
+            provider.addEventListener('onpaymentsuccess', (customEvent) => { console.log(customEvent); }); // колбек для обработки успешного платежа
+            provider.addEventListener('onpaymenterror', (customEvent) => { console.log(customEvent); }); // колбек для обработки ошибки
+        </script>
+    </body>
+<html>
